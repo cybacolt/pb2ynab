@@ -1,0 +1,16 @@
+{
+  "transactions": [
+    {%- for t in transactions %}
+    {
+      "account_id": "{{ t.account }}",
+      "date": "{{ t.date  }}",
+      "amount": {{ t.amount }},
+      "payee_name": "{{ t.description }}",
+      "category_id": "{{ t.category }}",
+      "memo": "{{ t.notes }}",
+      "cleared": "cleared",
+      "approved": true
+    }{{ ", " if not loop.last else "" }}
+    {%- endfor %}
+  ]
+}
