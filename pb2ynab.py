@@ -41,7 +41,7 @@ for row in transactions_raw:
 
 	transaction = {
 		"date": f"{year}-{month}-{day}",
-		"description": row['description'],
+		"description": row['description'].upper(),
 		"category": ynab_categories[category_map[row['category']]],
 		"amount": int(float(row['amount'].strip(' "'))*1000),
 		"notes": row['notes'],
